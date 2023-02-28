@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Doctor Appointment</title>
+    <link rel="icon" type="image/png" href="images/receptionist.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<section>
+    <header>
+    <h2>Doctor Appointment</h2>
+    </header>
+    <form>
+        <label for="dname">Doctor Name:</label>
+        <input type="text" id="dname" name="dname"><br><br>
+        <label for="apptdate">Appointment Date:</label>
+        <input type="date" id="apptdate" name="apptdate"><br><br>
+        <label for="appttime">Appointment Time:</label>
+        <input type="time" id="appttime" name="appttime"><br><br>
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority">
+        <option value="urgent">Urgent</option>
+        <option value="routine">Routine</option>
+        <option value="followup">Follow-up</option>
+        </select><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</section>
+</body>
+
+</html>
