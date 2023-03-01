@@ -3,6 +3,12 @@
 <head>
 	<title>Hospital Management System</title>
 	<style>
+        body {
+            padding: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+            margin: 0px;
+            font-size:15px;
+            font-family:Verdana, Geneva, sans-serif;
+        }
         button {
             background-color: rgba(8, 67, 134, 0.8);
             color: white;
@@ -11,11 +17,10 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            
+            transition: background-color 0.3s;      
         }
         /* latin */
-        @font-face {
+         @font-face {
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 400;
@@ -391,7 +396,7 @@
 			opacity: 1;
 		}
         .footer {
-			background-color:rgba(4, 77, 160, 0.8);
+			background-color:rgba(0, 45, 95, 0.8);
 			color: white;
 			padding: 10px;
 			text-align: center;
@@ -404,15 +409,18 @@
 	</style>
 </head>
 <body>
+    <header>
+        <div class="container text-center"><a><span style="color:rgba(8, 67, 134, 0.8)"><h2>Hospital Management System</h2></span></a></div>     
+    </header>
     <!-- Navigation -->
-    <section><h2 style="color:rgba(8, 67, 134, 0.8)">Hospital Management System</h2></section>
-    <hr style="color:rgba(131, 173, 221, 0.8)">
-    <section id="navigation">
-        <div class="container">
+    <!-- <h2 style="color:rgba(8, 67, 134, 0.8)">Hospital Management System</h2> -->
+    <!-- <hr style="color:rgba(131, 173, 221, 0.8)"> -->
+    <!-- <section id="navigation"> -->
+        <!-- <div class="container"> -->
             <div id='cssmenu'>      
                 <ul>          
                     <li> 
-                        <a target="_blank" href="#"></a><span> <button>LOGIN</button></span></a>
+                        <a target="_blank" href="#"></a><span><button>LOGIN</button></span></a>
                         <ul>
                             <li><a href="login.html"><span>Login as Fornt-Desk Operator</span></a>
                             </li>
@@ -428,7 +436,7 @@
                         </ul>
                     </li>  
                     <li> 
-                        <a target="_blank" href="#"></a><span> <button>SIGNUP</button></span></a>
+                        <a target="_blank" href="#"></a><span ><button>SIGNUP</button></span></a>
                         <ul>
                             <li><a href="signup.html"><span>Signup as Fornt-Desk Operator</span></a>
                             </li>
@@ -444,8 +452,9 @@
 
                 </ul>
             </div>
-        </div>
-    </section>
+        <!-- </div> -->
+        <br>
+    <!-- </section> -->
   
 	<div class="slideshow">
 		<img class="active" src="images/hospital0.jpg">
