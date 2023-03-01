@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Doctor Dashboard</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            background-color: green;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form.query {
+            max-width: 222px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+
+        button[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #2d862d;
+        }
+
+        button[type="record"] {
+
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 200px;
+        }
+
+        button[type="record"]:hover {
+            background-color: #2d862d;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Doctor Dashboard</h1>
+    <div
+        style="display:flex;align-items:center;justify-content:space-between;width:80%;max-width:1000px;margin:0 auto;">
+        <div style="display:flex;align-items:center;">
+            <img src="doctor-images/D1.jpg" alt="Doctor's photo"
+                style="height:50px;width:50px;border-radius:50%;margin-right:20px;">
+            <h2>Dr. John Doe</h2>
+        </div>
+        <div>
+            <!-- Add any additional information for the doctor here -->
+        </div>
+    </div>
+    <h2>Patient Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>123</td>
+                <td>John Smith</td>
+            </tr>
+            <tr>
+                <td>456</td>
+                <td>Jane Doe</td>
+            </tr>
+            <!-- more patient records here -->
+        </tbody>
+    </table>
+    <h2>Query Patient Information</h2>
+    <form class="query">
+        <label for="patient-id">Patient ID:</label>
+        <input type="text" id="patient-id" name="patient-id" >
+        <button type="submit">Query</button>
+    </form>
+    <h2>Record Prescriptions</h2>
+    <form>
+        <div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">
+            <div style="flex: 1;">
+                <label for="patient-id-prescription">Patient ID:</label>
+                <input type="text" id="patient-id-prescription" name="patient-id-prescription">
+            </div>
+            <div style="flex: 1;">
+                <label for="prescription">Prescription:</label>
+                <input type="text" id="prescription" name="prescription">
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <button type="record">Record</button>
+        </div>
+    </form>
+
+
+    <footer>
+        <p>&copy; 2023 Doctor Dashboard. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
