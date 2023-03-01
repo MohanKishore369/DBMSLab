@@ -19,7 +19,11 @@
             cursor: pointer;
             transition: background-color 0.3s;      
         }
+        button:hover {
+	     background-color: #050f3b;
+        }
         /* latin */
+        
          @font-face {
             font-family: 'Montserrat';
             font-style: normal;
@@ -34,7 +38,7 @@
             src: local('Montserrat-Bold'), url(../fonts/IQHow_FEYlDC4Gzy_m8fcoWiMMZ7xLd792ULpGE4W_Y.woff2) format('woff2');/*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;*/
         }
         #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a, #cssmenu #menu-button {
-            margin: 0;
+            margin:0px 0px;
             padding: 0;
             border: 0;
             list-style: none;
@@ -410,17 +414,18 @@
 </head>
 <body>
     <header>
-        <div class="container text-center"><a><span style="color:rgba(8, 67, 134, 0.8)"><h2>Hospital Management System</h2></span></a></div>     
+        <div class="container text-center"><a><span style="color:rgba(8, 67, 134, 0.8);"><h2>Hospital Management System</h2></span></a></div>     
     </header>
     <!-- Navigation -->
     <!-- <h2 style="color:rgba(8, 67, 134, 0.8)">Hospital Management System</h2> -->
-    <!-- <hr style="color:rgba(131, 173, 221, 0.8)"> -->
+    <hr style="color:rgba(131, 173, 221, 0.8)">
     <!-- <section id="navigation"> -->
         <!-- <div class="container"> -->
             <div id='cssmenu'>      
                 <ul>          
                     <li> 
-                        <a target="_blank" href="#"></a><span><button>LOGIN</button></span></a>
+                        <!-- <a target="_blank" href="#"></a><span><button>LOGIN</button></span></a> -->
+                        <span><button>LOGIN</button></span>
                         <ul>
                             <li><a href="login.html"><span>Login as Fornt-Desk Operator</span></a>
                             </li>
@@ -436,7 +441,9 @@
                         </ul>
                     </li>  
                     <li> 
-                        <a target="_blank" href="#"></a><span ><button>SIGNUP</button></span></a>
+
+                        <!-- <a target="_blank" href="#"></a><span ><button>SIGNUP</button></span></a> -->
+                        <span><button>SIGNUP</button></span>
                         <ul>
                             <li><a href="signup.html"><span>Signup as Fornt-Desk Operator</span></a>
                             </li>
