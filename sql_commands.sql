@@ -1,4 +1,4 @@
-CREATE TABLE Doctor(EmployeeID int NOT NULL, Name varchar(30) NOT NULL, Department varchar(30) NOT NULL, Email varchar(30) NOT NULL, Phone varchar(30) NOT NULL, Password varchar(30) NOT NULL,PRIMARY KEY(EmployeeID));
+CREATE TABLE Doctor(EmployeeID int NOT NULL, Name varchar(30) NOT NULL, Department varchar(30) NOT NULL, Email varchar(30) NOT NULL, Phone varchar(13) NOT NULL, Password varchar(30) NOT NULL,PRIMARY KEY(EmployeeID));
 CREATE TABLE FrontDeskOp(Username varchar(30) NOT NULL, Password varchar(30) NOT NULL,PRIMARY KEY(Username));
 CREATE TABLE DataEntryOp(Username varchar(30) NOT NULL, Password varchar(30) NOT NULL,PRIMARY KEY(Username));
 CREATE TABLE DbAdmin(Username varchar(30) NOT NULL, Password varchar(30) NOT NULL,PRIMARY KEY(Username));
