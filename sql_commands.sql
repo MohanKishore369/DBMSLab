@@ -26,9 +26,9 @@ CREATE TABLE DbAdmin(Username varchar(30) NOT NULL,
                      PRIMARY KEY(Username));
 
 INSERT INTO Doctor VALUES
-(1,'anirudh','General Surgeon','anirudhaitipamula@gmail.com','94572877742','123'),
-(2,'vinod','Orthopedicican','vinod345@gmail.com','6302548792','234'),
-(3,'shalini','Pediatrician','shalini@gmail.com','8416544713','345');
+(1,'Anirudh','General Surgeon','anirudhaitipamula@gmail.com','94572877742','123'),
+(2,'Vinod','Orthopedicican','vinod345@gmail.com','6302548792','234'),
+(3,'Shalini','Pediatrician','shalini@gmail.com','8416544713','345');
 
 INSERT INTO FrontDeskOp VALUES
 ('arjun', '123', 'arjun@gmail.com', 'Arjuna K'),
