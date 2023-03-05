@@ -43,13 +43,13 @@ INSERT INTO DataEntryOp VALUES
 INSERT INTO DbAdmin VALUES
 ('syam','123');
 
-CREATE TABLE Patient(PatientID int NOT NULL, 
- 					Name varchar(255) NOT NULL, 
-  					Gender varchar(1) NOT NULL, 
- 					Age int NOT NULL, 
-					Phone varchar(255) NOT NULL, 
-					Diagnosis varchar(255) NOT NULL,
-						PRIMARY KEY(PatientID));
+CREATE TABLE Patient(PatientID int NOT NULL,
+                     Name varchar(255) NOT NULL,
+                     Gender varchar(1) NOT NULL,
+                     Age int NOT NULL,
+                     Phone varchar(255) NOT NULL,
+                     Diagnosis varchar(255) NOT NULL,
+                     PRIMARY KEY(PatientID));
 INSERT INTO Patient VALUES (1, 'Rahul','M', 25,'8759658745', 'bone fracture');
 INSERT INTO Patient VALUES (2, 'Pinky', 'F', 35, '4444658745', 'fever,cold,cough');
 INSERT INTO Patient VALUES  (3, 'Likhitha', 'F', 15, '5368768888', 'allergy');
@@ -99,14 +99,14 @@ INSERT INTO Prescribes_Treatment VALUES(2,1,4,'2023-02-28','Rest');
 INSERT INTO Prescribes_Treatment VALUES(3,3,1,'2023-03-04','Massage');
 
 CREATE TABLE Prescribes_Test(Doctor int NOT NULL,
-                            Patient int NOT NULL,
-                            Appointment int NOT NULL,
-                            Date DATE NOT NULL,
-                            Test varchar(255) NOT NULL,
-                            PRIMARY KEY (Doctor, Patient, Appointment,Date),
-                            FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID),
-                            FOREIGN KEY (Patient) REFERENCES Patient(PatientID),
-                            FOREIGN KEY (Appointment) REFERENCES Appointment(AppointmentID));
+                             Patient int NOT NULL,
+                             Appointment int NOT NULL,
+                             Date DATE NOT NULL,
+                             Test varchar(255) NOT NULL,
+                             PRIMARY KEY (Doctor, Patient, Appointment,Date),
+                             FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID),
+                             FOREIGN KEY (Patient) REFERENCES Patient(PatientID),
+                             FOREIGN KEY (Appointment) REFERENCES Appointment(AppointmentID));
 
 INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Blood Test');
 INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray');
