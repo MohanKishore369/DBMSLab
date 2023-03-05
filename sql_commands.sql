@@ -103,10 +103,11 @@ CREATE TABLE Prescribes_Test(Doctor int NOT NULL,
                              Appointment int NOT NULL,
                              Date DATE NOT NULL,
                              Test varchar(255) NOT NULL,
+                             Results varchar(1000),
                              PRIMARY KEY (Doctor, Patient, Appointment,Date),
                              FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID),
                              FOREIGN KEY (Patient) REFERENCES Patient(PatientID),
                              FOREIGN KEY (Appointment) REFERENCES Appointment(AppointmentID));
 
-INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Blood Test');
-INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray');
+INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Blood Test',NULL);
+INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray',NULL);
