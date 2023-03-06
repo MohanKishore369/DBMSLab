@@ -61,11 +61,11 @@ INSERT INTO Patient VALUES (2, 'Pinky', 'F', 35, '4444658745', 'fever,cold,cough
 INSERT INTO Patient VALUES  (3, 'Likhitha', 'F', 15, '5368768888', 'allergy');
 INSERT INTO Patient VALUES  (4, 'Vijay', 'M', 20, '9999999999', 'Headache, nausea, weakness');
 
-CREATE TABLE Appointment (AppointmentID int NOT NULL, 
+CREATE TABLE Appointment (  AppointmentID int NOT NULL AUTO_INCREMENT, 
                             Doctor int NOT NULL,
                             Patient int NOT NULL,
-                            Date DATE NOT NULL,
-                            StartTime varchar(255) NOT NULL,
+                            Date date NOT NULL,
+                            StartTime time NOT NULL,
                             PRIMARY KEY (AppointmentID),
                             FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID),
                             FOREIGN KEY (Patient) REFERENCES Patient(PatientID));
@@ -116,3 +116,71 @@ CREATE TABLE Prescribes_Test(Doctor int NOT NULL,
 
 INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Blood Test');
 INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray');
+
+-- Mohan's part
+CREATE TABLE Room(Number int NOT NULL, Type varchar(50) NOT NULL, Available boolean NOT NULL, PRIMARY KEY(Number));
+
+INSERT INTO Room VALUES (120, 'General Ward', 1);
+INSERT INTO Room VALUES (121, 'Emergency Ward', 1);
+INSERT INTO Room VALUES (122, 'Emergency Ward', 1);
+INSERT INTO Room VALUES (123, 'Emergency Ward', 1);
+INSERT INTO Room VALUES (124, 'ICU', 1);
+INSERT INTO Room VALUES (125, 'ICU', 1);
+INSERT INTO Room VALUES (126, 'Personal Room', 1);
+INSERT INTO Room VALUES (127, 'Personal Room', 1);
+INSERT INTO Room VALUES (128, 'Personal Room', 1);
+INSERT INTO Room VALUES (129, 'Personal Room', 1);
+INSERT INTO Room VALUES (130, 'Personal Room', 1);
+INSERT INTO Room VALUES (131, 'Personal Room', 1);
+INSERT INTO Room VALUES (132, 'Personal Room', 1);
+
+CREATE TABLE Stay(Patient int NOT NULL, Room int NOT NULL, PRIMARY KEY(Patient, Room), FOREIGN KEY (Patient) REFERENCES Patient(PatientID), FOREIGN KEY (Room) REFERENCES Room(Number))   
+CREATE TABLE Slots(Doctor int NOT NULL, Date date NOT NULL, StartTime time NOT NULL, EndTime time NOT NULL, Available boolean NOT NULL, FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID), PRIMARY KEY(Doctor, Date, StartTime));
+
+CREATE TABLE SlotsforTests(Test varchar(100) NOT NULL, Date date NOT NULL, StartTime time NOT NULL, Available boolean NOT NULL, PRIMARY KEY(Test, Date, StartTime));
+CREATE TABLE SlotsforTreatments(Treatment varchar(100) NOT NULL, Date date NOT NULL, StartTime time NOT NULL, Available boolean NOT NULL, PRIMARY KEY(Treatment, Date, StartTime));
+CREATE TABLE Scheduled_Tests(Patient int NOT NULL, Test varchar(100) NOT NULL, Date date NOT NULL, StartTime time NOT NULL, PRIMARY KEY(Patient, Test, Date, StartTime));
+CREATE TABLE Scheduled_Treatments(Patient int NOT NULL, Treatment varchar(100) NOT NULL, Date date NOT NULL, StartTime time NOT NULL, PRIMARY KEY(Patient,Treatment, Date, StartTime));
+
+INSERT INTO Slots VALUES(1,'2023-03-06','8:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','9:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','10:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','11:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','14:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','15:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','16:00',1);
+INSERT INTO Slots VALUES(1,'2023-03-06','17:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','8:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','9:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','10:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','11:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','14:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','15:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','16:00',1);
+INSERT INTO Slots VALUES(2,'2023-03-06','17:00',1);
+
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','8:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','9:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','10:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','11:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','14:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','15:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','16:00',1);
+INSERT INTO SlotsforTests VALUES('Bloodtest','2023-03-06','17:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','8:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','9:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','10:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','11:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','14:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','15:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','16:00',1);
+INSERT INTO SlotsforTests VALUES('Urinetest','2023-03-06','17:00',1);
+
+INSERT INTO SlotsforTreatments VALUES('RootCanalTreatment','2023-03-06','8:00',1);
+INSERT INTO SlotsforTreatments VALUES('RootCanalTreatment','2023-03-06','11:00',1);
+INSERT INTO SlotsforTreatments VALUES('RootCanalTreatment','2023-03-06','15:00',1);
+INSERT INTO SlotsforTreatments VALUES('RootCanalTreatment','2023-03-06','17:00',1);
+INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','8:00',1);
+INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','11:00',1);
+INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','15:00',1);
+INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','17:00',1);
