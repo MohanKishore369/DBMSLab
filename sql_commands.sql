@@ -1,4 +1,9 @@
 -- Write the DROP commands as your need to drop the tables and then create the tables again.
+DROP TABLE Prescribes_Medication;
+DROP TABLE Prescribes_Treatment;
+DROP TABLE Prescribes_Test;
+DROP TABLE Appointment;
+DROP TABLE Patient;
 DROP TABLE Doctor;
 DROP TABLE FrontDeskOp;
 DROP TABLE DataEntryOp;
@@ -10,6 +15,7 @@ CREATE TABLE Doctor(EmployeeID int NOT NULL,
                     Email varchar(30) NOT NULL,
                     Phone varchar(13) NOT NULL,
                     Password varchar(30) NOT NULL,
+                    Working int NOT NULL,
                     PRIMARY KEY(EmployeeID));
 CREATE TABLE FrontDeskOp(Username varchar(30) NOT NULL,
                          Password varchar(30) NOT NULL,
@@ -26,9 +32,9 @@ CREATE TABLE DbAdmin(Username varchar(30) NOT NULL,
                      PRIMARY KEY(Username));
 
 INSERT INTO Doctor VALUES
-(1,'Anirudh','General Surgeon','anirudhaitipamula@gmail.com','94572877742','123'),
-(2,'Vinod','Orthopedicican','vinod345@gmail.com','6302548792','234'),
-(3,'Shalini','Pediatrician','shalini@gmail.com','8416544713','345');
+(1,'anirudh','General Surgeon','anirudhaitipamula@gmail.com','94572877742','123', 1),
+(2,'vinod','Orthopedicican','vinod345@gmail.com','6302548792','234', 1),
+(3,'shalini','Pediatrician','shalini@gmail.com','8416544713','345', 1);
 
 INSERT INTO FrontDeskOp VALUES
 ('arjun', '123', 'arjun@gmail.com', 'Arjuna K'),
@@ -103,11 +109,10 @@ CREATE TABLE Prescribes_Test(Doctor int NOT NULL,
                              Appointment int NOT NULL,
                              Date DATE NOT NULL,
                              Test varchar(255) NOT NULL,
-                             Results varchar(1000),
                              PRIMARY KEY (Doctor, Patient, Appointment,Date),
                              FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID),
                              FOREIGN KEY (Patient) REFERENCES Patient(PatientID),
                              FOREIGN KEY (Appointment) REFERENCES Appointment(AppointmentID));
 
-INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Blood Test',NULL);
-INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray',NULL);
+INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Blood Test');
+INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray');
