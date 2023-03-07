@@ -185,4 +185,8 @@ INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','8:00',1);
 INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','11:00',1);
 INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','15:00',1);
 INSERT INTO SlotsforTreatments VALUES('CataractSurgery','2023-03-06','17:00',1);
+INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','8:00',1);
+INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','11:00',1);
+INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','15:00',1);
+INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','17:00',1);
 
