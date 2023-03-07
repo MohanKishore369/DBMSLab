@@ -134,7 +134,7 @@ INSERT INTO Room VALUES (130, 'Personal Room', 1);
 INSERT INTO Room VALUES (131, 'Personal Room', 1);
 INSERT INTO Room VALUES (132, 'Personal Room', 1);
 
-CREATE TABLE Stay(Patient int NOT NULL, Room int NOT NULL, PRIMARY KEY(Patient, Room), FOREIGN KEY (Patient) REFERENCES Patient(PatientID), FOREIGN KEY (Room) REFERENCES Room(Number))   
+CREATE TABLE Stay(Patient int NOT NULL, Room int NOT NULL, PRIMARY KEY(Patient, Room), FOREIGN KEY (Patient) REFERENCES Patient(PatientID), FOREIGN KEY (Room) REFERENCES Room(Number)); 
 CREATE TABLE Slots(Doctor int NOT NULL, Date date NOT NULL, StartTime time NOT NULL, EndTime time NOT NULL, Available boolean NOT NULL, FOREIGN KEY (Doctor) REFERENCES Doctor(EmployeeID), PRIMARY KEY(Doctor, Date, StartTime));
 
 CREATE TABLE SlotsforTests(Test varchar(100) NOT NULL, Date date NOT NULL, StartTime time NOT NULL, Available boolean NOT NULL, PRIMARY KEY(Test, Date, StartTime));
