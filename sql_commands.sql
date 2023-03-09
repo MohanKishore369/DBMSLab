@@ -193,6 +193,9 @@ INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','17:00',1);
 
 CREATE TABLE AdministeredTreatments(Patient int NOT NULL, Appointment int NOT NULL, Treatment varchar(50) NOT NULL, PRIMARY KEY(Patient,Appointment,Treatment), FOREIGN
 KEY(Patient) REFERENCES Patient(PatientID),FOREIGN KEY(Appointment) REFERENCES Appointment(AppointmentID));
+
+--Triggers
+
 DELIMITER $$
 CREATE TRIGGER patient_age_trigger
 BEFORE INSERT
@@ -207,3 +210,100 @@ SET MESSAGE_TEXT = error_mesg;
 END $$
 DELLIMITER ;
 
+DELIMITER $$
+CREATE TRIGGER patient_phone_trigger
+BEFORE INSERT 
+ON Patient FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Phone Number length should be 10');
+  IF LENGTH(new.Phone) < 10 THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER appointment_date_trigger
+BEFORE INSERT 
+ON Appointment FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Appointment cannot be scheduled in the Past');
+  IF new.Date < DATE(NOW()) THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER appointment_time_trigger
+BEFORE INSERT 
+ON Appointment FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Appointment can be scheduled only from the given list of slots');
+  IF new.StartTime < TIME(NOW()) OR MINUTE(new.StartTime) != 0 OR HOUR(new.StartTime) > 17 THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER test_date_trigger
+BEFORE INSERT 
+ON Scheduled_Tests FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Test cannot be scheduled in the Past');
+  IF new.Date < DATE(NOW()) THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER test_time_trigger
+BEFORE INSERT 
+ON Scheduled_Tests FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Test can be scheduled only from the given list of slots');
+  IF new.StartTime < TIME(NOW()) OR MINUTE(new.StartTime) != 0 OR HOUR(new.StartTime) > 17 THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER treatment_date_trigger
+BEFORE INSERT 
+ON Scheduled_Treatments FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Treatment cannot be scheduled in the Past');
+  IF new.Date < DATE(NOW()) THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE TRIGGER treatment_time_trigger
+BEFORE INSERT 
+ON Scheduled_Treatments FOR EACH ROW
+BEGIN 
+  DECLARE error_mesg VARCHAR(255);
+  SET error_mesg = ('Treatment can be scheduled only from the given list of slots');
+  IF new.StartTime < TIME(NOW()) OR MINUTE(new.StartTime) != 0 OR HOUR(new.StartTime) > 17 THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+  END IF;
+END $$
+DELIMITER ;
