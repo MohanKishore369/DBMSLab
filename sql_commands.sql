@@ -191,3 +191,5 @@ INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','11:00',1);
 INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','15:00',1);
 INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','17:00',1);
 
+CREATE TABLE AdministeredTreatments(Patient int NOT NULL, Appointment int NOT NULL, Type varchar(50) NOT NULL, PRIMARY KEY(Patient,Appointment), FOREIGN
+KEY(Patient) REFERENCES Patient(PatientID),FOREIGN KEY(Appointment) REFERENCES Appointment(AppointmentID));
