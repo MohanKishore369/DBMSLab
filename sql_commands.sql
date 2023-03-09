@@ -193,3 +193,17 @@ INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','17:00',1);
 
 CREATE TABLE AdministeredTreatments(Patient int NOT NULL, Appointment int NOT NULL, Type varchar(50) NOT NULL, PRIMARY KEY(Patient,Appointment), FOREIGN
 KEY(Patient) REFERENCES Patient(PatientID),FOREIGN KEY(Appointment) REFERENCES Appointment(AppointmentID));
+DELIMITER $$
+CREATE TRIGGER patient_age_trigger
+BEFORE INSERT
+ON Patient FOR EACH ROW
+BEGIN
+ DECLARE error_mesg VARCHAR(255);
+ SET error_mesg = ('Age is less than zero');
+ IF new.Age < 0 THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = error_mesg;
+ END IF;
+END $$
+DELLIMITER ;
+
