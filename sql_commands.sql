@@ -115,8 +115,8 @@ CREATE TABLE Prescribes_Test(Doctor int NOT NULL,
                              FOREIGN KEY (Patient) REFERENCES Patient(PatientID),
                              FOREIGN KEY (Appointment) REFERENCES Appointment(AppointmentID));
 
-INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Bloodtest');
-INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray');
+INSERT INTO Prescribes_Test VALUES(1,2,2,'2022-10-15','Bloodtest',NULL);
+INSERT INTO Prescribes_Test VALUES(1,4,3,'2022-11-05','X-Ray',NULL);
 
 -- Mohan's part
 CREATE TABLE Room(Number int NOT NULL, Type varchar(50) NOT NULL, Available boolean NOT NULL, PRIMARY KEY(Number));
