@@ -190,6 +190,10 @@ INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','8:00',1);
 INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','11:00',1);
 INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','15:00',1);
 INSERT INTO SlotsforTreatments VALUES('Surgery','2023-03-08','17:00',1);
+INSERT INTO SlotsforTreatments VALUES('Infusion','2023-03-14','8:00',1);
+INSERT INTO SlotsforTreatments VALUES('Infusion','2023-03-14','11:00',1);
+INSERT INTO SlotsforTreatments VALUES('Infusion','2023-03-14','15:00',1);
+INSERT INTO SlotsforTreatments VALUES('Infusion','2023-03-14','17:00',1);
 
 CREATE TABLE AdministeredTreatments(Patient int NOT NULL, Appointment int NOT NULL, Treatment varchar(50) NOT NULL, PRIMARY KEY(Patient,Appointment,Treatment), FOREIGN
 KEY(Patient) REFERENCES Patient(PatientID),FOREIGN KEY(Appointment) REFERENCES Appointment(AppointmentID));
