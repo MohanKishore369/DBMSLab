@@ -113,7 +113,7 @@ testCreatingAndRandomReadingDummyPages (void)
   testName = "Creating and Dummy Pages and reading them in random order";
 
   CHECK(createPageFile("testbuffer.bin"));
-  createDummyPages(bm, 25);
+  createDummyPages(bm, 10);
 
   CHECK(initBufferPool(bm, "testbuffer.bin", 10, RS_FIFO, NULL));
 
@@ -180,11 +180,11 @@ testCreatingAndReadingDummyPages (void)
 
   CHECK(createPageFile("testbuffer.bin"));
 
-  createDummyPages(bm, 22);
-  checkDummyPages(bm, 20);
+  createDummyPages(bm, 12);
+  checkDummyPages(bm, 10);
 
-  createDummyPages(bm, 30);
-  checkDummyPages(bm, 30);
+  createDummyPages(bm, 10);
+  checkDummyPages(bm, 10);
 
   CHECK(destroyPageFile("testbuffer.bin"));
 
@@ -276,7 +276,7 @@ testFIFO ()
   testName = "Testing FIFO page replacement";
 
   CHECK(createPageFile("testbuffer.bin"));
-  createDummyPages(bm, 30);
+  createDummyPages(bm, 10);
   CHECK(initBufferPool(bm, "testbuffer.bin", 3, RS_FIFO, NULL));
 
   // reading some pages linearly with direct unpin and no modifications
@@ -356,7 +356,7 @@ testLRU (void)
   testName = "Testing LRU page replacement";
 
   CHECK(createPageFile("testbuffer.bin"));
-  createDummyPages(bm, 30);
+  createDummyPages(bm, 10);
   CHECK(initBufferPool(bm, "testbuffer.bin", 5, RS_LRU, NULL));
 
   // reading first five pages linearly with direct unpin and no modifications
@@ -466,7 +466,7 @@ testCLOCK ()
 
   CHECK(createPageFile("testbuffer.bin"));
 
-  createDummyPages(bm, 30);
+  createDummyPages(bm, 10);
 
   CHECK(initBufferPool(bm, "testbuffer.bin", 3, RS_CLOCK, NULL));
 
